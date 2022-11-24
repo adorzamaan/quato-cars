@@ -37,7 +37,13 @@ const Routes = () => {
           path: "/signup",
           element: <SignUp></SignUp>,
         },
-        {},
+        {
+          path: "/categories/:id",
+          loader: ({ params }) => {
+            return fetch(`http://localhost:5000/categories/${params.id}`);
+          },
+          element: <Service></Service>,
+        },
         {},
         {},
         {},

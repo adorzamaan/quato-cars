@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import PrimaryButton from "../../../Shared/PrimaryButton/PrimaryButton";
 
 const ServiceCard = ({category}) => {
+  console.log(category);
   const {info} = category;
 
   return (
@@ -28,7 +29,7 @@ const ServiceCard = ({category}) => {
           </div> */}
         </div>
         <div className="tablet text-center mt-2 mb-6">
-          <Link to={`/courses`}>
+          <Link to={`/categories/${category.category_id}`}>
             {/* <button className="px-8 py-1 bg-purple-600 text-white">
               Purchase Now
             </button> */}
