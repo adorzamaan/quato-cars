@@ -1,34 +1,38 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import PrimaryButton from "../../../Shared/PrimaryButton/PrimaryButton";
 
-const ServiceCard = () => {
+const ServiceCard = ({category}) => {
+  const {info} = category;
+
   return (
-    <div className="container mx-auto">
-      <div className="card bg-base-100 shadow-xl rounded-xl">
-        <img src="" alt="/" className=" w-full md:h-48" />
+    <div className="bg-base-100">
+      <div className="card  shadow-md rounded-xl">
+        <img src={category?.image} alt="/" className=" w-full md:h-48" />
         <div className="card-body flex justify-between p-4 text-black">
           <div className="tablet">
-            <h2 className="font-bold" style={{ fontSize: "14px" }}>
-              
+            <h2 className="font-bold" style={{ fontSize: "18px" }}>
+             Brand: {category?.brand}
             </h2>
-            <p style={{ fontSize: "12px" }}>
-              <small></small>
+            <p style={{ fontSize: "14px" }}>
+             Info: <small>{info.slice(0,100)}</small>
             </p>
           </div>
-          <div className="tablet">
+          {/* <div className="tablet">
             <p>
               Price : <small></small>
             </p>
             <p className="flex items-center pr-2">
               Lectures: <small></small>
             </p>
-          </div>
+          </div> */}
         </div>
-        <div className="tablet text-center bottom-2 btn-item">
+        <div className="tablet text-center mt-2 mb-6">
           <Link to={`/courses`}>
-            <button className="px-8 py-1 bg-purple-600 text-white">
+            {/* <button className="px-8 py-1 bg-purple-600 text-white">
               Purchase Now
-            </button>
+            </button> */}
+            <PrimaryButton>Visit More</PrimaryButton>
           </Link>
         </div>
       </div>
