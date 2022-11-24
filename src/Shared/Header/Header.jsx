@@ -38,7 +38,7 @@ const Header = () => {
         </div>
         <p className="">
           <Link className="font-bold text-sm md:text-xl">
-            Epic Care{" "}
+          Quato Cars{" "}
             <span className="md:text-5xl text-2xl  text-primary">•</span>
           </Link>
         </p>

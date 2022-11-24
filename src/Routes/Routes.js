@@ -2,6 +2,8 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Blog from "../Pages/Blog/Blog";
 import Home from "../Pages/Home/Home";
+import Login from "../Pages/Login/Login";
+import SignUp from "../Pages/Login/SignUp";
 import Service from "../Pages/Service/Service";
 import Root from "../Root/Root";
 
@@ -27,8 +29,14 @@ const Routes = () => {
           path: "/blog",
           element: <Blog></Blog>,
         },
-        {},
-        {},
+        {
+          path: "/login",
+          element: <Login></Login>,
+        },
+        {
+          path: "/signup",
+          element: <SignUp></SignUp>,
+        },
         {},
         {},
         {},
