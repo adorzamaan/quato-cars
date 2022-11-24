@@ -152,7 +152,7 @@ const Login = () => {
                 Log In
               </button>
               <div className="divider">
-                <p className="font-medium text-sm">Login With</p>
+                <p className="font-medium text-sm dark:text-gray-300">Login With</p>
               </div>
               <div className="flex justify-center space-x-4">
                 <button

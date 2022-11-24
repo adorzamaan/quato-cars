@@ -1,8 +1,9 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../Component/CustomHook/UseToken";
 import { authContext } from "../../Context/AuthProvider";
 import SmallSpinner from "../../Shared/Spinner/SmallSpinner/SmallSpinner";
 
@@ -14,12 +15,19 @@ const SignUp = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const [createdUseremail, setCreatedUserEmail] = useState(null);
+  const [token] = useToken(createdUseremail);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location?.state?.from?.pathname || "/";
+  if (token) {
+    navigate(from, { replace: true });
+  }
   const handleSignUp = (data) => {
     // console.log(data);
     const name = data.name;
     const image = data.image[0];
-    // const user = data.select;
+    const userBio = data.select;
     const email = data.email;
     const password = data.password;
     // console.log(name, image, user, email, password);
@@ -32,19 +40,25 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        // console.log(imageData);
+        console.log(imageData);
         createUser(email, password)
           .then((result) => {
             const user = result.user;
             toast.success("Successfully Registered");
-            console.log(user);
-            setLoading(false);
+            // console.log(user);
             updateUserProfile(name, imageData.data.url)
-              .then(() => {})
+              .then(() => {
+                setLoading(false);
+                saveUserDb(
+                  user.displayName,
+                  email,
+                  password,
+                  userBio,
+                  imageData.data.url
+                );
+              })
               .catch((err) => {
                 toast.error(err.message);
-
-                navigate("/");
               });
           })
           .catch((err) => {
@@ -71,13 +85,30 @@ const SignUp = () => {
       });
   };
 
+  const saveUserDb = (name, email, password, profile, photo) => {
+    const updateUser = { name, email, password, profile, photo };
+    fetch(`${process.env.REACT_APP_server_url}/users`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateUser),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.acknowledged > 0) {
+          setCreatedUserEmail(email);
+        }
+      });
+  };
+
   return (
     <div>
       <section className="bg-white dark:bg-gray-900">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
           <form
             onSubmit={handleSubmit(handleSignUp)}
-            className="w-full max-w-md border p-6 shadow-sm mb-4"
+            className="w-full max-w-md border p-6 shadow-sm my-4"
           >
             <div className="flex items-center justify-center mt-6">
               <Link
@@ -161,7 +192,7 @@ const SignUp = () => {
               <UsersIcon className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></UsersIcon>
               <select
                 {...register("select", { required: "required*" })}
-                className="select select-bordered select-sm w-full max-w-xs px-6"
+                className="select select-bordered select-sm w-full max-w-xs px-6 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300"
               >
                 <option>Buyer</option>
                 <option>Seller</option>
@@ -264,7 +295,9 @@ const SignUp = () => {
             </div>
             {/* <h3 className="text-center pt-4 font-bold text-sm ">Sign Up With</h3> */}
             <div className="divider">
-              <p className="font-medium text-sm">Sign Up With</p>
+              <p className="font-medium text-sm dark:text-gray-300 dark:border-gray-300">
+                Sign Up With
+              </p>
             </div>
             <div className="flex justify-center space-x-4">
               <button
