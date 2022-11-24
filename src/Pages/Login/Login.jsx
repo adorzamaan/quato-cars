@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div>
-      <section class="bg-white dark:bg-gray-900">
-        <div class="container flex items-center justify-center min-h-screen px-6 mx-auto">
-          <form class="w-full max-w-md">
-            <div class="flex items-center justify-center mt-6">
+      <section className="bg-white dark:bg-gray-900">
+        <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+          <form className="w-full max-w-md border p-6 shadow-sm">
+            <div className="flex items-center justify-center mt-6">
               <Link
                to="/login"
-                class="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b border-blue-500 dark:border-blue-400 dark:text-gray-300"
+                className="w-1/3 pb-4 font-medium text-center text-gray-500 capitalize border-b border-blue-500 dark:border-blue-400 dark:text-gray-300"
               >
                 Sign In
               </Link>
 
               <Link
                 to="/signup"
-                class="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400  dark:text-white"
+                className="w-1/3 pb-4 font-medium text-center text-gray-800 capitalize border-blue-500 dark:border-blue-400  dark:text-white"
               >
                 Sign Up
               </Link>
@@ -26,11 +26,11 @@ const Login = () => {
 
             
 
-            <div class="relative flex items-center mt-6">
-              <span class="absolute">
+            <div className="relative flex items-center mt-6">
+              <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                  className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -46,16 +46,16 @@ const Login = () => {
 
               <input
                 type="email"
-                class="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full py-3 text-gray-700 bg-white border rounded-md px-11 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Email address"
               />
             </div>
 
-            <div class="relative flex items-center mt-4">
-              <span class="absolute">
+            <div className="relative flex items-center mt-4">
+              <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                  className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -71,16 +71,16 @@ const Login = () => {
 
               <input
                 type="password"
-                class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Password"
               />
             </div>
 
-            {/* <div class="relative flex items-center mt-4">
-              <span class="absolute">
+            {/* <div className="relative flex items-center mt-4">
+              <span className="absolute">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
+                  className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -96,20 +96,20 @@ const Login = () => {
 
               <input
                 type="password"
-                class="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
+                className="block w-full px-10 py-3 text-gray-700 bg-white border rounded-md dark:bg-gray-900 dark:text-gray-300 dark:border-gray-600 focus:border-blue-400 dark:focus:border-blue-300 focus:ring-blue-300 focus:outline-none focus:ring focus:ring-opacity-40"
                 placeholder="Confirm Password"
               />
             </div> */}
 
-            <div class="mt-6">
-              <button class="w-full bg-gradient-to-tr from-primary to-secondary rounded-lg py-2 px-6 text-white focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+            <div className="mt-6">
+              <button type="submit" className="w-full bg-gradient-to-tr from-primary to-secondary rounded-lg py-2 px-6 text-white focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
                Log In
               </button>
 
-              <div class="mt-6 text-center ">
+              <div className="mt-6 text-center ">
                 <span
                   href="/"
-                  class="text-sm text-blue-500 hover:underline dark:text-blue-400"
+                  className="text-sm text-blue-500 hover:underline dark:text-blue-400"
                 >
                   New to Quato Cars ? <Link to="/signup"> Create Account</Link>
                 </span>
