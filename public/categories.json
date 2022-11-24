@@ -1,212 +1,199 @@
 [
   {
-    "brand": "audi",
-    "info":"Over the years Audi has has grown into being one of Germanys three premium brands together with BMW and Mercedes-Benz. Among their most selling models are A4",
-    "categories": [
-      {
-        "name": "Audi A6 Hybrid",
-        "image":"https://i.ibb.co/p3rDByj/audi1.jpg",
-        "model": "Model 2013",
-        "Reg": "Reg 2013",
-        "Cc": "Cc 2000",
-        "color": "black",
-        "resellprice": 50000,
-        "orginalPrice": 60000,
-        "location": "chittagong",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "3 year",
-        "description": [
-          "All option auto, sunroof, premium beige leather interior",
-          "inch low profile rims with fresh tyre, blutooth audio with",
-          "bose sound system, front two seats power with memory",
-          "multifunction steering control, dual zone climate control",
-          "with rear seat air conditioning vents, 4 wheel disc brake",
-          "way parking sensors+ many more features"
-        ]
-      },
-      {
-        "name": "Audi A6 Hybrid",
-        "image":"https://i.ibb.co/r3Fr7Mn/audi2.jpg",
-        "model": "Model 2019",
-        "Reg": "Reg 2020",
-        "Cc": "Cc 1400",
-        "color": "black",
-        "resellprice": 400000,
-        "orginalPrice": 700000,
-        "location": "Uttara",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "2 year",
-        "description": [
-          "Premium Tan Leather Interior with Brown Wood Trim",
-          "Audi Premium Surround Sound System",
-          "0.2-inch virtual cockpit screen",
-          "Automatic Dimming Inside Rearview Mirror & Outside Mirrors",
-          "Dual Zone Climate Control",
-          "way parking sensors+ many more features"
-        ]
-      }
-      {
-        "name": "A5 Sportback S-Line",
-        "image":"https://i.ibb.co/p3rDByj/audi1.jpg",
-        "model": "Model 2012",
-        "Reg": "Reg 2016",
-        "Cc": "Cc 2000",
-        "color": "White",
-        "resellprice": 450000,
-        "orginalPrice": 300000,
-        "location": "Khulsi",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "1 year",
-        "description": [
-          "Premium Tan Leather Interior with Brown Wood Trim",
-          "Audi Premium Surround Sound System",
-          "Brakes-Type-4 Wheel DISC",
-          "Headlights-Automatic",
-          "Security System",
-          "Comfort & Convenience"
-        ]
-      }
+    "category_id": "01",
+    "name": "Audi A6 Hybrid",
+    "image": "https://i.ibb.co/p3rDByj/audi1.jpg",
+    "model": "Model 2013",
+    "Reg": "Reg 2013",
+    "Cc": "Cc 2000",
+    "color": "black",
+    "resellprice": 50000,
+    "orginalPrice": 60000,
+    "location": "chittagong",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "3 year",
+    "description": [
+      "All option auto, sunroof, premium beige leather interior",
+      "inch low profile rims with fresh tyre, blutooth audio with",
+      "bose sound system, front two seats power with memory",
+      "multifunction steering control, dual zone climate control",
+      "with rear seat air conditioning vents, 4 wheel disc brake",
+      "way parking sensors+ many more features"
     ]
   },
   {
-    "brand": "BMW",
-    "info":"Dive into new worlds with BMW, get inspired, and experience the unknown, the unusual and some useful things, too.",
-    "categories": [
-      {
-        "name": "BMW X1",
-        "image":"https://i.ibb.co/hRKSKQn/bm1.jpg",
-        "model": "Model 2013",
-        "Reg": "Reg 2013",
-        "Cc": "Cc 2000",
-        "color": "black",
-        "resellprice": 180000,
-        "orginalPrice": 240000,
-        "location": "chittagong",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "3 year",
-        "description": [
-          "All option auto, sunroof, premium beige leather interior",
-          "inch low profile rims with fresh tyre, blutooth audio with",
-          "bose sound system, front two seats power with memory",
-          "multifunction steering control, dual zone climate control",
-          "with rear seat air conditioning vents, 4 wheel disc brake",
-          "way parking sensors+ many more features"
-        ]
-      },
-      {
-        "name": "BMW i8 2019",
-        "image":"https://i.ibb.co/bW8BhvP/bm2.jpg",
-        "model": "Model 2019",
-        "Reg": "Reg 2020",
-        "Cc": "Cc 1400",
-        "color": "Matt Black",
-        "resellprice": 1400000,
-        "orginalPrice": 1200000,
-        "location": "Anowara",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "1 year",
-        "description": [
-          "Premium Tan Leather Interior with Brown Wood Trim",
-          "Harman Kardon Sound System",
-          "BMW Head-Up Display",
-          "Wireless charging",
-          "20 BMW Alloy wheels",
-          "way parking sensors+ many more features"
-        ]
-      },
-      {
-        "name": "BMW X5",
-        "image":"https://i.ibb.co/qrMv7nC/bm3.jpg",
-        "model": "Model 2012",
-        "Reg": "Unregistered (Embassy used)",
-        "Cc": "Cc 3000",
-        "color": "White",
-        "resellprice": 750000,
-        "orginalPrice": 800000,
-        "location": "Chittagong",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "1.5 year",
-        "description": [
-          "Premium black Interior with fabric Seat",
-          "18” OEM Wheels with Run-Flat Tires",
-          "Multifunction Steering Wheel",
-          "Dual Exhaust System",
-          "Security System",
-          "Comfort & Convenience"
-        ]
-      }
+    "category_id": "01",
+    "name": "Audi A4 Hybrid",
+    "image": "https://i.ibb.co/r3Fr7Mn/audi2.jpg",
+    "model": "Model 2019",
+    "Reg": "Reg 2020",
+    "Cc": "Cc 1400",
+    "color": "black",
+    "resellprice": 400000,
+    "orginalPrice": 700000,
+    "location": "Uttara",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "2 year",
+    "description": [
+      "Premium Tan Leather Interior with Brown Wood Trim",
+      "Audi Premium Surround Sound System",
+      "0.2-inch virtual cockpit screen",
+      "Automatic Dimming Inside Rearview Mirror & Outside Mirrors",
+      "Dual Zone Climate Control",
+      "way parking sensors+ many more features"
     ]
   },
-  
   {
-    "brand": "Mazda",
-    "info":"Mazda Motor Corporation commonly referred to as simply Mazda, is a Japanese multinational automotive manufacturer headquartered in Fuchū, Hiroshima, Japan.",
-    "categories": [
-      {
-        "name": "Mazda Roadster",
-        "image":"https://i.ibb.co/h7nzMJ6/mazda1.jpg",
-        "model": "Model Axela 2015",
-        "Reg": "Reg 2017",
-        "Cc": "Cc 3000",
-        "color": "black",
-        "resellprice": 180000,
-        "orginalPrice": 240000,
-        "location": "Chittagong",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "3 year",
-        "description": [
-          "All option auto, sunroof, premium beige leather interior",
-          "multifunction steering control, dual zone climate control",
-          "with rear seat air conditioning vents, 4 wheel disc brake",
-          "way parking sensors+ many more features"
-        ]
-      },
-      {
-        "name": "Mazda Axela",
-        "image":"https://i.ibb.co/y5Zr6PT/mazda2.jpg",
-        "model": "Model 2016",
-        "Reg": "Reg 2018",
-        "Cc": "Cc 3000",
-        "color": "White",
-        "resellprice": 2000000,
-        "orginalPrice": 2150000,
-        "location": "Anowara",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "1 year",
-        "description": [
-          "Premium Tan Leather Interior with Brown Wood Trim",
-          "Dual built in mazda speed",
-          "All perfect, not a single work is needed.",
-          "Wireless charging",
-         
-          "way parking sensors+ many more features"
-        ]
-      },
-      {
-        "name": "Mazda Axela",
-        "image":"https://i.ibb.co/YBvz9TL/mazda3.jpg",
-        "model": "Model 2014",
-        "Reg": "Reg 2018",
-        "Cc": "Cc 1500",
-        "color": "Grey",
-        "resellprice": 1500000,
-        "orginalPrice": 1860000,
-        "location": "Noapara",
-        "condition": ["Good", "Fair", "Used"],
-        "yearuse": "1.5 year",
-        "description": [
-          "Premium black Interior with fabric Seat",
-          "Push Start, projection LED headlamp, Mazda Genuine",
-          "Multimedia & back camera, ABS, RVM, 4 dish break, Sky active Engine",
-          "Traction control, i-stop, Soft touch Ac",
-          "Security System",
-          "Full automatic options"
-        ]
-      }
+    "category_id": "01",
+    "name": "A5 Sportback S-Line",
+    "image": "https://i.ibb.co/p3rDByj/audi1.jpg",
+    "model": "Model 2012",
+    "Reg": "Reg 2016",
+    "Cc": "Cc 2000",
+    "color": "White",
+    "resellprice": 450000,
+    "orginalPrice": 300000,
+    "location": "Khulsi",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "1 year",
+    "description": [
+      "Premium Tan Leather Interior with Brown Wood Trim",
+      "Audi Premium Surround Sound System",
+      "Brakes-Type-4 Wheel DISC",
+      "Headlights-Automatic",
+      "Security System",
+      "Comfort & Convenience"
     ]
   },
-  
+  {
+    "category_id": "02",
+    "name": "BMW X1",
+    "image": "https://i.ibb.co/hRKSKQn/bm1.jpg",
+    "model": "Model 2013",
+    "Reg": "Reg 2013",
+    "Cc": "Cc 2000",
+    "color": "black",
+    "resellprice": 180000,
+    "orginalPrice": 240000,
+    "location": "chittagong",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "3 year",
+    "description": [
+      "All option auto, sunroof, premium beige leather interior",
+      "inch low profile rims with fresh tyre, blutooth audio with",
+      "bose sound system, front two seats power with memory",
+      "multifunction steering control, dual zone climate control",
+      "with rear seat air conditioning vents, 4 wheel disc brake",
+      "way parking sensors+ many more features"
+    ]
+  },
+  {
+    "category_id": "02",
+    "name": "BMW i8 2019",
+    "image": "https://i.ibb.co/bW8BhvP/bm2.jpg",
+    "model": "Model 2019",
+    "Reg": "Reg 2020",
+    "Cc": "Cc 1400",
+    "color": "Matt Black",
+    "resellprice": 1400000,
+    "orginalPrice": 1200000,
+    "location": "Anowara",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "1 year",
+    "description": [
+      "Premium Tan Leather Interior with Brown Wood Trim",
+      "Harman Kardon Sound System",
+      "BMW Head-Up Display",
+      "Wireless charging",
+      "20 BMW Alloy wheels",
+      "way parking sensors+ many more features"
+    ]
+  },
+  {
+    "category_id": "02",
+    "name": "BMW X5",
+    "image": "https://i.ibb.co/qrMv7nC/bm3.jpg",
+    "model": "Model 2012",
+    "Reg": "Unregistered (Embassy used)",
+    "Cc": "Cc 3000",
+    "color": "White",
+    "resellprice": 750000,
+    "orginalPrice": 800000,
+    "location": "Chittagong",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "1.5 year",
+    "description": [
+      "Premium black Interior with fabric Seat",
+      "18” OEM Wheels with Run-Flat Tires",
+      "Multifunction Steering Wheel",
+      "Dual Exhaust System",
+      "Security System",
+      "Comfort & Convenience"
+    ]
+  },
+
+  {
+    "category_id": "03",
+    "name": "Mazda Roadster",
+    "image": "https://i.ibb.co/h7nzMJ6/mazda1.jpg",
+    "model": "Model Axela 2015",
+    "Reg": "Reg 2017",
+    "Cc": "Cc 3000",
+    "color": "black",
+    "resellprice": 180000,
+    "orginalPrice": 240000,
+    "location": "Chittagong",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "3 year",
+    "description": [
+      "All option auto, sunroof, premium beige leather interior",
+      "multifunction steering control, dual zone climate control",
+      "with rear seat air conditioning vents, 4 wheel disc brake",
+      "way parking sensors+ many more features"
+    ]
+  },
+  {
+    "category_id": "03",
+    "name": "Mazda Axela",
+    "image": "https://i.ibb.co/y5Zr6PT/mazda2.jpg",
+    "model": "Model 2016",
+    "Reg": "Reg 2018",
+    "Cc": "Cc 3000",
+    "color": "White",
+    "resellprice": 2000000,
+    "orginalPrice": 2150000,
+    "location": "Anowara",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "1 year",
+    "description": [
+      "Premium Tan Leather Interior with Brown Wood Trim",
+      "Dual built in mazda speed",
+      "All perfect, not a single work is needed.",
+      "Wireless charging",
+
+      "way parking sensors+ many more features"
+    ]
+  },
+  {
+    "category_id": "03",
+    "name": "Mazda Axela",
+    "image": "https://i.ibb.co/YBvz9TL/mazda3.jpg",
+    "model": "Model 2014",
+    "Reg": "Reg 2018",
+    "Cc": "Cc 1500",
+    "color": "Grey",
+    "resellprice": 1500000,
+    "orginalPrice": 1860000,
+    "location": "Noapara",
+    "condition": ["Good", "Fair", "Used"],
+    "yearuse": "1.5 year",
+    "description": [
+      "Premium black Interior with fabric Seat",
+      "Push Start, projection LED headlamp, Mazda Genuine",
+      "Multimedia & back camera, ABS, RVM, 4 dish break, Sky active Engine",
+      "Traction control, i-stop, Soft touch Ac",
+      "Security System",
+      "Full automatic options"
+    ]
+  }
 ]
-
-
-
