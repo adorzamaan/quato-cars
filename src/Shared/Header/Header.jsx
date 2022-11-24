@@ -1,8 +1,21 @@
 import { FolderArrowDownIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import React from "react";
+import React, { useContext } from "react";
+import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
-import './Header.css';
+import { authContext } from "../../Context/AuthProvider";
+import "./Header.css";
 const Header = () => {
+  const { user,logOut } = useContext(authContext);
+
+
+const handleSignOut = ()=>{
+  logOut()
+  .then(()=>{
+    toast.error('Logged Out')
+  })
+  .catch(err => toast.error(err.message))
+}
+
   return (
     <div className="container mx-auto navbar bg-base-100 flex justify-between">
       <div className="navbar-start">
@@ -38,7 +51,7 @@ const Header = () => {
         </div>
         <p className="">
           <Link className="font-bold text-sm md:text-xl">
-          Quato Cars{" "}
+            Quato Cars{" "}
             <span className="md:text-5xl text-2xl  text-primary">•</span>
           </Link>
         </p>
@@ -55,25 +68,32 @@ const Header = () => {
         </div>
       </div>
       <div className="navbar-end">
-        <button
-          type="button"
-          className="py-1 text-white px-4 bg-accent rounded-lg"
-        >
-          SignOut
-        </button>
-        <Link to="/dashboard">
-          {" "}
-          <UserCircleIcon className="w-5 h-5 text-white bg-accent rounded-full m-2 active"></UserCircleIcon>
-        </Link>
-        <label htmlFor="my-drawer-2" tabIndex={3} className="lg:hidden">
-          <FolderArrowDownIcon className="w-5 h-5"></FolderArrowDownIcon>
-        </label>
-        <Link
-          to="/login"
-          className="py-1 text-white px-6 bg-gradient-to-r from-primary to-secondary"
-        >
-          Login
-        </Link>
+        {user && user.uid ? (
+          <>
+            {" "}
+            <button onClick={handleSignOut}
+              type="button"
+              className="py-1 text-white px-4 bg-accent rounded-lg"
+            >
+              SignOut
+            </button>
+            <Link to="/dashboard">
+              {" "}
+              <UserCircleIcon className="w-5 h-5 text-white bg-accent rounded-full m-2 active"></UserCircleIcon>
+            </Link>
+            <label htmlFor="my-drawer-2" tabIndex={3} className="lg:hidden">
+              <FolderArrowDownIcon className="w-5 h-5"></FolderArrowDownIcon>
+            </label>
+          </>
+        ) : (
+          <Link
+            to="/login"
+            className="py-1 text-white px-6 bg-gradient-to-r from-primary to-secondary"
+          >
+            Login
+          </Link>
+        )}
+
         {/* {user && user.uid ? (
             <>
               <button

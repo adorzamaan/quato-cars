@@ -1,17 +1,63 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import { authContext } from "../../Context/AuthProvider";
+import SmallSpinner from "../../Shared/Spinner/SmallSpinner/SmallSpinner";
 
 const SignUp = () => {
+  const { createUser, updateUserProfile, loading, setLoading } =
+    useContext(authContext);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+  const navigate = useNavigate()
   const handleSignUp = (data) => {
-    console.log(data);
+    // console.log(data);
+    const name = data.name;
+    const image = data.image[0];
+    // const user = data.select;
+    const email = data.email;
+    const password = data.password;
+    // console.log(name, image, user, email, password);
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMG_BB_HOST_KEY}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        // console.log(imageData);
+        createUser(email, password)
+            .then((result) => {
+              const user = result.user;
+              toast.success("Successfully Registered");
+              console.log(user);
+              setLoading(false)
+              updateUserProfile(name, imageData.data.url)
+                .then(() => {})
+                .catch((err) => {
+                  toast.error(err.message);
+                 
+                  navigate('/')
+                });
+            })
+            .catch((err) => {
+              toast.error(err.message);
+              setLoading(false);
+            });
+      });
   };
+
+  // const saveUserDb = (name,email,password,profile,photo)=>{
+  //     const newUser = {name,email,password,profile,photo}
+  //     fetch()
+  // }
 
   return (
     <div>
@@ -101,12 +147,15 @@ const SignUp = () => {
             <div className="relative flex items-center mt-6">
               <span className="absolute"></span>
               <UsersIcon className="w-6 h-6 mx-3 text-gray-300 dark:text-gray-500"></UsersIcon>
-              <select  {...register("select", { required: "required*" })} className="select select-bordered select-sm w-full max-w-xs px-6">
+              <select
+                {...register("select", { required: "required*" })}
+                className="select select-bordered select-sm w-full max-w-xs px-6"
+              >
                 <option>Buyer</option>
                 <option>Seller</option>
               </select>
-              {errors.email && (
-                <p className="text-red-500">{errors.email.message}</p>
+              {errors.select && (
+                <p className="text-red-500">{errors.select.message}</p>
               )}
             </div>
 
@@ -198,7 +247,7 @@ const SignUp = () => {
                 type="submit"
                 className="w-full bg-gradient-to-tr from-primary to-secondary rounded-lg py-2 px-6 text-white focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
               >
-                Register
+                {loading ? <SmallSpinner /> : "Sign Up"}
               </button>
 
               <div className="mt-6 text-center ">
