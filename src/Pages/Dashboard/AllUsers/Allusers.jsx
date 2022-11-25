@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 const Allusers = () => {
-//   const { user } = useContext(authContext);
+  //   const { user } = useContext(authContext);
 
   // const url =
   const [sellers, setAllSellers] = useState([]);
@@ -12,7 +12,7 @@ const Allusers = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data.data.user);
-        setAllSellers(data.data.user);
+        setAllSellers(data.data.users);
       });
   }, []);
 
@@ -24,9 +24,9 @@ const Allusers = () => {
           <tr>
             <th></th>
             <th>Profile</th>
-            <th>Products</th>
-            <th>Price</th>
-            <th>Payment</th>
+            <th>Info</th>
+            <th>Verify</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -43,18 +43,25 @@ const Allusers = () => {
                 </h5>
               </td>
               <td>
-                <h3 className="font-bold text-md">{seller?.name}</h3>{" "}
-                <p className="text-sm font-bold">{seller?.profile}</p>
+                <h3 className="font-bold text-sm">{seller?.name}</h3>{" "}
+                <p className="text-sm font-medium">{seller?.profile}</p>
+                <p className="text-sm">{seller?.email}</p>
               </td>
               <td>
-                <small>12000</small>
+              <small>
+                  <Link to="/">
+                    <button className="py-1 px-3 bg-red-500 text-white">
+                      Verify
+                    </button>
+                  </Link>
+                </small>
               </td>
 
               <td>
                 <small>
                   <Link to="/">
                     <button className="py-1 px-3 bg-accent text-white">
-                      Pay
+                      Delete
                     </button>
                   </Link>
                 </small>

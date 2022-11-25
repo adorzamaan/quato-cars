@@ -68,11 +68,6 @@ const SignUp = () => {
       });
   };
 
-  // const saveUserDb = (name,email,password,profile,photo)=>{
-  //     const newUser = {name,email,password,profile,photo}
-  //     fetch()
-  // }
-
   const userSignUpWithGoogle = () => {
     providerLogin()
       .then((result) => {

@@ -20,18 +20,19 @@ const DashboardRoot = () => {
             <NavLink to="/dashboard/myorders" className="my-2">
               My Orders
             </NavLink>
+            <NavLink to="/dashboard/addproducts" className="my-2">
+              Add a Product
+            </NavLink>
             <NavLink to="/dashboard/allusers" className="my-2">
               ALl Sellers
             </NavLink>
             <NavLink to="/dashboard/allbuyers" className="my-2">
               ALl Buyers
             </NavLink>
-            <NavLink to="/dashboard/addproducts" className="my-2">
-              Add a Product
-            </NavLink>
-            <NavLink to="/dashboard/managedoctors" className="my-2">
+
+            {/* <NavLink to="/dashboard/managedoctors" className="my-2">
               Manage Doctors
-            </NavLink>
+            </NavLink> */}
           </ul>
         </div>
       </div>
