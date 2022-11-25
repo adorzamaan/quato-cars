@@ -4,7 +4,7 @@ import { authContext } from "../../../Context/AuthProvider";
 const CategoryCard = ({ service, setSingleService }) => {
   const { user } = useContext(authContext);
   const { description } = service;
-  console.log(description);
+  // console.log(description);
   return (
     <div className="bg-base-100">
       <div className="card  rounded-sm border text-left">
@@ -50,22 +50,22 @@ const CategoryCard = ({ service, setSingleService }) => {
               </p>
             </div>
             {description?.slice(0, 3).map((des, index) => (
-              <p key={index} className="flex items-center px-2 py-1">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  className="flex-shrink-0 w-4 h-4 mx-2 text-green-400"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                {des}
-              </p>
-            ))}
+                  <p key={index} className="flex items-center px-2 py-1">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="flex-shrink-0 w-4 h-4 mx-2 text-green-400"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                    {des}
+                  </p>
+                ))}
 
             <div className="divider">
               <p className="font-medium text-sm text-gray-800 border-gray-300">

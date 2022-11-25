@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import "./AddProduct.css";
 const AddProducts = () => {
   const { register, handleSubmit } = useForm();
@@ -15,6 +16,49 @@ const AddProducts = () => {
 
   const handleAddProducts = (data) => {
     console.log(data);
+    const image = data.image[0];
+    // console.log(name, image, user, email, password);
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMG_BB_HOST_KEY}`;
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((imageData) => {
+        console.log(imageData);
+        if (imageData.success) {
+          const products = {
+            category_id: data.category_id,
+            name: data.name,
+            image:imageData.data.url,
+            email: data.email,
+            model: data.model,
+            Reg: data.Reg,
+            Cc: data.Cc,
+            color: data.color,
+            resellprice: data.resellprice,
+            orginalPrice: data.orginalPrice,
+            location: data.location,
+            condition: data.condition,
+            yearuse: data.yearuse,
+            // description: data.description,
+          };
+          fetch(`${process.env.REACT_APP_server_url}/categories`, {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify(products),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log(data);
+              toast.success("Successfully Addedd");
+            });
+        }
+      });
   };
   return (
     <div>
@@ -62,13 +106,13 @@ const AddProducts = () => {
           <input
             type="text"
             placeholder="Registration"
-            {...register("reg", { required: "photo is required" })}
+            {...register("Reg", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
-            type="text"
+            type="number"
             placeholder="Cc"
-            {...register("cc", { required: "photo is required" })}
+            {...register("Cc", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
@@ -78,15 +122,15 @@ const AddProducts = () => {
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
-            type="text"
+            type="number"
             placeholder="ResellPrice"
             {...register("resellprice", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
             type="text"
-            placeholder="OrginaPrice"
-            {...register("orginalPrice", { required: "photo is required" })}
+            placeholder="number"
+            {...register("orginalprice", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
@@ -102,16 +146,22 @@ const AddProducts = () => {
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
           <input
+            type="number"
+            placeholder="Year of Use"
+            {...register("yearuse", { required: "photo is required" })}
+            className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
+          />
+          {/* <input
             type="text"
             placeholder="Description"
             {...register("description", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
-          />
+          /> */}
           {/* <label htmlFor="email" className="block text-gray-600">
             Specialty
           </label> */}
           <select
-            {...register("category")}
+            {...register("category_id")}
             required
             className="select select-ghost w-full px-4 py-2 rounded-md bg-white border-gray-200 border  text-gray-800"
           >
