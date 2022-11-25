@@ -1,12 +1,34 @@
+import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { authContext } from "../../../Context/AuthProvider";
+import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
+import TableRow from "./TableRow/TableRow";
 
 const MyOrders = () => {
   const { user } = useContext(authContext);
+
+  const url = `${process.env.REACT_APP_server_url}/bookings?email=${user?.email}`;
+
+  const { data: bookings = [], isLoading } = useQuery({
+    queryKey: ["bookings", user?.email],
+    queryFn: async () => {
+      const res = await fetch(url, {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+        },
+      });
+      const data = await res.json();
+      return data;
+    },
+  });
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
   return (
     <div>
-      <h3 className="font-bold py-6">My Orders</h3>
+      <h3 className="font-bold py-6">
+        Hey <small className="text-primary font-bold">{`${user?.displayName}`}</small> your available booking-- {bookings.length}
+      </h3>
       <table className="table w-full bg-base-100">
         <thead>
           <tr>
@@ -18,47 +40,9 @@ const MyOrders = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>
-              <h5 className="font-bold">
-                <div className="avatar">
-                  <div className="w-12 mask mask-hexagon shadow-sm">
-                    <img src={user?.PhotoURL} alt="/" />
-                  </div>
-                </div>
-              </h5>
-            </td>
-            <td>
-              <h3 className="font-bold text-md">{user?.displayName}</h3>{" "}
-              <p className="text-sm">{user?.email}</p>
-            </td>
-            <td>
-              <small>
-                12000
-                
-                {/* {booking.price && !booking.paid && (
-                      <Link to={`/dashboard/payment/${booking._id}`}>
-                        <button className="py-1 px-3 bg-accent text-white">
-                          Pay
-                        </button>
-                      </Link>
-                    )}
-
-                    {booking.price && booking.paid && (
-                      <span className="text-green-500 font-medium">Paid</span>
-                    )} */}
-              </small>
-            </td>
-
-            <td>
-            <Link to={`/dashboard/payment}`}>
-                  <button className="py-1 px-3 bg-accent text-white">
-                    Pay
-                  </button>
-                </Link>
-            </td>
-          </tr>
+          {bookings?.map((book, index) => (
+            <TableRow key={index} book={book} index={index}></TableRow>
+          ))}
         </tbody>
       </table>
     </div>

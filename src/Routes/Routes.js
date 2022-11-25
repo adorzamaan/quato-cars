@@ -71,7 +71,11 @@ const Routes = () => {
         },
         {
           path: "/dashboard/myorders",
-          element: <MyOrders></MyOrders>,
+          element: (
+            <PrivateRoutes>
+              <MyOrders></MyOrders>
+            </PrivateRoutes>
+          ),
         },
       ],
     },

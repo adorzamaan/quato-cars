@@ -23,8 +23,8 @@ const DashboardRoot = () => {
             <NavLink to="/dashboard/users" className="my-2">
               ALl Users
             </NavLink>
-            <NavLink to="/dashboard/adddoctor" className="my-2">
-              Add a Doctor
+            <NavLink to="/dashboard/addproducts" className="my-2">
+              Add a Product
             </NavLink>
             <NavLink to="/dashboard/managedoctors" className="my-2">
               Manage Doctors
