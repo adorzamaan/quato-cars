@@ -1,8 +1,9 @@
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { authContext } from "../../Context/AuthProvider";
+import SmallSpinner from "../../Shared/Spinner/SmallSpinner/SmallSpinner";
 
 const Login = () => {
   const {
@@ -10,17 +11,20 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signIn, providerLogin } = useContext(authContext);
+  const { signIn, providerLogin,loading,setLoading } = useContext(authContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
 
   const handleLogin = (data) => {
     console.log(data);
+    setLoading(true)
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         toast.success("Successfully log in");
-        navigate("/");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);
@@ -149,10 +153,12 @@ const Login = () => {
                 type="submit"
                 className="w-full bg-gradient-to-tr from-primary to-secondary rounded-lg py-2 px-6 text-white focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
               >
-                Log In
+                {loading ? <SmallSpinner></SmallSpinner>:"Log In"}
               </button>
               <div className="divider">
-                <p className="font-medium text-sm dark:text-gray-300">Login With</p>
+                <p className="font-medium text-sm dark:text-gray-300">
+                  Login With
+                </p>
               </div>
               <div className="flex justify-center space-x-4">
                 <button

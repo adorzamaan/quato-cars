@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
 import { authContext } from "../../../Context/AuthProvider";
-import PrimaryButton from "../../../Shared/PrimaryButton/PrimaryButton";
 
-const CategoryCard = ({ service }) => {
+const CategoryCard = ({ service, setSingleService }) => {
   const { user } = useContext(authContext);
   const { description } = service;
   console.log(description);
@@ -13,9 +11,20 @@ const CategoryCard = ({ service }) => {
         <img src={service?.image} alt="/" className=" w-full md:h-48" />
         <div className="card-body flex justify-between p-4 text-black">
           <div className="tablet">
-            <h2 className="font-bold" style={{ fontSize: "18px" }}>
-              Brand: {service?.name}
-            </h2>
+            <div className="flex flex-wrap justify-between">
+              <h2 className="font-bold" style={{ fontSize: "18px" }}>
+                Brand: {service?.name}
+              </h2>
+              <div className="tablet sm:text-center md:text-left mt-2 mb-6">
+                <label
+                  onClick={() => setSingleService(service)}
+                  htmlFor="bookingModal"
+                  className="bg-gradient-to-tr from-primary to-secondary rounded-lg py-1 px-2 md:px-6 text-white"
+                >
+                  Book Now
+                </label>
+              </div>
+            </div>
             <p>{service?.model}</p>
             <p style={{ fontSize: "16px" }}>
               Color: <small>{service.color}</small>
@@ -32,6 +41,7 @@ const CategoryCard = ({ service }) => {
             <p style={{ fontSize: "16px" }}>
               MarketPrice : {service?.orginalPrice}
             </p>
+            <p style={{ fontSize: "16px" }}>Phone : 016017872348</p>
             <p style={{ fontSize: "16px" }}>Location : {service?.location}</p>
 
             <div className="divider">
@@ -67,7 +77,9 @@ const CategoryCard = ({ service }) => {
                 <img src={user?.photoURL} alt="/" />
               </div>
             </div>
-            <h3 className="font-bold text-md text-center pt-2">{user?.displayName}</h3>
+            <h3 className="font-bold text-md text-center pt-2">
+              {user?.displayName}
+            </h3>
           </div>
           {/* <div className="tablet">
             <p>
@@ -78,14 +90,14 @@ const CategoryCard = ({ service }) => {
             </p>
           </div> */}
         </div>
-        <div className="tablet text-center mt-2 mb-6">
-          <Link to={`/categories/${service.category_id}`}>
-            {/* <button className="px-8 py-1 bg-purple-600 text-white">
-              Purchase Now
-            </button> */}
-            <PrimaryButton>Book Now</PrimaryButton>
-          </Link>
-        </div>
+        {/* <div className="tablet text-center mt-2 mb-6">
+          <label
+            htmlFor="bookingModal"
+            className="bg-gradient-to-tr from-primary to-secondary rounded-lg py-1 px-6 text-white"
+          >
+            Book Now
+          </label>
+        </div> */}
       </div>
     </div>
   );

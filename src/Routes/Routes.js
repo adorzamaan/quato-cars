@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import Service from "../Pages/Service/Service";
 import Root from "../Root/Root";
+import PrivateRoutes from "./PrivateRoutes";
 
 const Routes = () => {
   const routes = createBrowserRouter([
@@ -42,7 +43,11 @@ const Routes = () => {
           loader: ({ params }) => {
             return fetch(`http://localhost:5000/categories/${params.id}`);
           },
-          element: <Service></Service>,
+          element: (
+            <PrivateRoutes>
+              <Service></Service>
+            </PrivateRoutes>
+          ),
         },
         {},
         {},
