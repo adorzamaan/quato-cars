@@ -52,9 +52,10 @@ const Login = () => {
     <div>
       <section className="bg-white dark:bg-gray-900">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+          <div className="w-full max-w-md border p-6 shadow-sm">
           <form
             onSubmit={handleSubmit(handleLogin)}
-            className="w-full max-w-md border p-6 shadow-sm"
+            className=""
           >
             <div className="flex items-center justify-center mt-6">
               <Link
@@ -162,7 +163,9 @@ const Login = () => {
               >
                 {loading ? <SmallSpinner></SmallSpinner> : "Log In"}
               </button>
-              <div className="divider">
+            </div>
+          </form>
+          <div className="divider">
                 <p className="font-medium text-sm dark:text-gray-300">
                   Login With
                 </p>
@@ -214,8 +217,7 @@ const Login = () => {
                   New to Quato Cars ? <Link to="/signup"> Create Account</Link>
                 </span>
               </div>
-            </div>
-          </form>
+          </div>
         </div>
       </section>
     </div>

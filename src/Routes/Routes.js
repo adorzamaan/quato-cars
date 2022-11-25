@@ -1,6 +1,9 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Blog from "../Pages/Blog/Blog";
+import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
+import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
+import Allusers from "../Pages/Dashboard/AllUsers/Allusers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home";
@@ -74,6 +77,30 @@ const Routes = () => {
           element: (
             <PrivateRoutes>
               <MyOrders></MyOrders>
+            </PrivateRoutes>
+          ),
+        },
+        {
+          path: "/dashboard/addproducts",
+          element: (
+            <PrivateRoutes>
+              <AddProducts></AddProducts>
+            </PrivateRoutes>
+          ),
+        },
+        {
+          path: "/dashboard/allusers",
+          element: (
+            <PrivateRoutes>
+              <Allusers></Allusers>
+            </PrivateRoutes>
+          ),
+        },
+        {
+          path: "/dashboard/allbuyers",
+          element: (
+            <PrivateRoutes>
+              <AllBuyers></AllBuyers>
             </PrivateRoutes>
           ),
         },

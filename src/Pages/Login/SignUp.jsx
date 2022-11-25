@@ -108,9 +108,10 @@ const SignUp = () => {
     <div>
       <section className="bg-white dark:bg-gray-900">
         <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-          <form
+         <div className="w-full max-w-md border p-6 shadow-sm my-4">
+         <form
             onSubmit={handleSubmit(handleSignUp)}
-            className="w-full max-w-md border p-6 shadow-sm my-4"
+            className=""
           >
             <div className="flex items-center justify-center mt-6">
               <Link
@@ -295,8 +296,9 @@ const SignUp = () => {
                 {loading ? <SmallSpinner /> : "Sign Up"}
               </button>
             </div>
-            {/* <h3 className="text-center pt-4 font-bold text-sm ">Sign Up With</h3> */}
-            <div className="divider">
+            {/* <h3 className="text-center pt-4 font-bold text-sm ">Sign Up With</h3> */}          
+          </form>
+          <div className="divider">
               <p className="font-medium text-sm dark:text-gray-300 dark:border-gray-300">
                 Sign Up With
               </p>
@@ -348,7 +350,8 @@ const SignUp = () => {
                 Already have an account?
               </Link>
             </div>
-          </form>
+         </div>
+          
         </div>
       </section>
     </div>
