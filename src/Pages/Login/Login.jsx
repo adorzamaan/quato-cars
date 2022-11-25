@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import useToken from "../../Component/CustomHook/UseToken";
 import { authContext } from "../../Context/AuthProvider";
 import SmallSpinner from "../../Shared/Spinner/SmallSpinner/SmallSpinner";
 
@@ -11,20 +12,25 @@ const Login = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { signIn, providerLogin,loading,setLoading } = useContext(authContext);
+  const { signIn, providerLogin, loading, setLoading } =
+    useContext(authContext);
+  const [loginUserEmail, setLoginUserEmail] = useState("");
+  const [token] = useToken(loginUserEmail);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  if (token) {
+    navigate(from, { replace: true });
+  }
   const handleLogin = (data) => {
     console.log(data);
-    setLoading(true)
+    setLoading(true);
     signIn(data.email, data.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         toast.success("Successfully log in");
-        navigate(from, { replace: true });
+        setLoginUserEmail(data.email);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -35,6 +41,7 @@ const Login = () => {
     providerLogin()
       .then((result) => {
         toast.success("Successfully Log in");
+        setLoginUserEmail(result.user.email);
       })
       .catch((error) => {
         toast.error(error.message);
@@ -153,7 +160,7 @@ const Login = () => {
                 type="submit"
                 className="w-full bg-gradient-to-tr from-primary to-secondary rounded-lg py-2 px-6 text-white focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50"
               >
-                {loading ? <SmallSpinner></SmallSpinner>:"Log In"}
+                {loading ? <SmallSpinner></SmallSpinner> : "Log In"}
               </button>
               <div className="divider">
                 <p className="font-medium text-sm dark:text-gray-300">

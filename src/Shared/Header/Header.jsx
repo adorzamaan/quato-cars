@@ -1,20 +1,19 @@
-import { FolderArrowDownIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 import React, { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../../Context/AuthProvider";
 import "./Header.css";
 const Header = () => {
-  const { user,logOut } = useContext(authContext);
+  const { user, logOut } = useContext(authContext);
 
-
-const handleSignOut = ()=>{
-  logOut()
-  .then(()=>{
-    toast.error('Logged Out')
-  })
-  .catch(err => toast.error(err.message))
-}
+  const handleSignOut = () => {
+    logOut()
+      .then(() => {
+        toast.error("Logged Out");
+      })
+      .catch((err) => toast.error(err.message));
+  };
 
   return (
     <div className="container mx-auto navbar bg-base-100 flex justify-between">
@@ -47,6 +46,14 @@ const handleSignOut = ()=>{
             <NavLink to="/blog">Blog</NavLink>
 
             <NavLink to="/riviews">Reviews</NavLink>
+            {user && user.uid && (
+              <>
+                {" "}
+                <label htmlFor="my-drawer-2" tabIndex={3} className="lg:hidden">
+                  <p className="font-medium text-sm">Dashboard</p>
+                </label>
+              </>
+            )}
           </div>
         </div>
         <p className="">
@@ -71,7 +78,8 @@ const handleSignOut = ()=>{
         {user && user.uid ? (
           <>
             {" "}
-            <button onClick={handleSignOut}
+            <button
+              onClick={handleSignOut}
               type="button"
               className="py-1 text-white px-4 bg-accent rounded-lg"
             >
@@ -81,9 +89,6 @@ const handleSignOut = ()=>{
               {" "}
               <UserCircleIcon className="w-5 h-5 text-white bg-accent rounded-full m-2 active"></UserCircleIcon>
             </Link>
-            <label htmlFor="my-drawer-2" tabIndex={3} className="lg:hidden">
-              <FolderArrowDownIcon className="w-5 h-5"></FolderArrowDownIcon>
-            </label>
           </>
         ) : (
           <Link

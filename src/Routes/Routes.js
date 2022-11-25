@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Blog from "../Pages/Blog/Blog";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
+import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
@@ -67,6 +68,10 @@ const Routes = () => {
         {
           path: "/dashboard",
           element: <Dashboard></Dashboard>,
+        },
+        {
+          path: "/dashboard/myorders",
+          element: <MyOrders></MyOrders>,
         },
       ],
     },

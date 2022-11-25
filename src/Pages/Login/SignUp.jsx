@@ -77,8 +77,10 @@ const SignUp = () => {
     providerLogin()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        // console.log(user);
         toast.success("Successfully log in");
+        setCreatedUserEmail(user.email)
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         toast.error(error.message);

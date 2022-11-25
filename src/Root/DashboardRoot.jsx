@@ -17,8 +17,8 @@ const DashboardRoot = () => {
             <NavLink to="/dashboard/profile" className="my-2">
               Profile
             </NavLink>
-            <NavLink to="/dashboard" className="my-2">
-              My Appointments
+            <NavLink to="/dashboard/myorders" className="my-2">
+              My Orders
             </NavLink>
             <NavLink to="/dashboard/users" className="my-2">
               ALl Users
