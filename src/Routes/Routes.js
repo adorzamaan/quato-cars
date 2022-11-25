@@ -1,10 +1,12 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Blog from "../Pages/Blog/Blog";
+import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
 import Service from "../Pages/Service/Service";
+import DashboardRoot from "../Root/DashboardRoot";
 import Root from "../Root/Root";
 import PrivateRoutes from "./PrivateRoutes";
 
@@ -56,6 +58,16 @@ const Routes = () => {
         {},
         {},
         {},
+      ],
+    },
+    {
+      path: "/dashboard",
+      element: <DashboardRoot></DashboardRoot>,
+      children: [
+        {
+          path: "/dashboard",
+          element: <Dashboard></Dashboard>,
+        },
       ],
     },
   ]);

@@ -50,7 +50,7 @@ const handleSignOut = ()=>{
           </div>
         </div>
         <p className="">
-          <Link className="font-bold text-sm md:text-xl">
+          <Link to="/" className="font-bold text-sm md:text-xl">
             Quato Cars{" "}
             <span className="md:text-5xl text-2xl  text-primary">•</span>
           </Link>

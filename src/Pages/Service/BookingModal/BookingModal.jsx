@@ -1,15 +1,43 @@
 import React, { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 import { authContext } from "../../../Context/AuthProvider";
 import SmallSpinner from "../../../Shared/Spinner/SmallSpinner/SmallSpinner";
 
 const BookingModal = ({ singleService, setSingleService }) => {
   const { user } = useContext(authContext);
-  console.log(singleService);
-  const { name: serviceName, resellprice } = singleService;
+//   console.log(singleService);
+  const { name: serviceName, resellprice, location } = singleService;
+
+  const { register, handleSubmit } = useForm();
 
   const [loading, setLoading] = useState(false);
-  const handleBooking = (e) => {
-    e.preventDefault();
+  const handleBooking = (data) => {
+    const products = {
+      clientName: user?.displayName,
+      service: serviceName,
+      resellprice,
+      location,
+      phone: data.phone,
+      email: user?.email,
+    };
+    setLoading(true);
+    fetch(`${process.env.REACT_APP_server_url}/bookings`, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(products),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        toast.success(
+          `Hey ${user?.displayName} Thanks for the ${serviceName} Booked`
+        );
+        setLoading(false);
+        setSingleService(null);
+      });
   };
   return (
     <div>
@@ -25,7 +53,7 @@ const BookingModal = ({ singleService, setSingleService }) => {
           <h3 className="text-lg font-bold pb-2 text-black">
             Brand : {serviceName}
           </h3>
-          <form onSubmit={handleBooking}>
+          <form onSubmit={handleSubmit(handleBooking)}>
             <input
               type="text"
               name="fullname"
@@ -39,8 +67,14 @@ const BookingModal = ({ singleService, setSingleService }) => {
               className="input border border-gray-300 w-full my-2"
             />
             <input
+              defaultValue={`Meet ${location}`}
+              readOnly
+              className="input border border-gray-300 w-full my-2"
+            />
+            <input
               type="text"
               name="phone"
+              {...register("phone", { required: "required*" })}
               placeholder="Phone Number"
               className="input border border-gray-300 w-full my-2"
             />
@@ -69,7 +103,11 @@ const BookingModal = ({ singleService, setSingleService }) => {
                 {loading ? <SmallSpinner /> : "Submit"}
               </button>
             ) : (
-              <button className="btn px-6 py-2 w-full mt-4 " disabled>
+              <button
+                type="submit"
+                className="btn px-6 py-2 w-full mt-4 "
+                disabled
+              >
                 Submit
               </button>
             )}
