@@ -7,7 +7,7 @@ import SmallSpinner from "../../../Shared/Spinner/SmallSpinner/SmallSpinner";
 const BookingModal = ({ singleService, setSingleService }) => {
   const { user } = useContext(authContext);
 //   console.log(singleService);
-  const { name: serviceName, resellprice, location } = singleService;
+  const { name: serviceName, resellprice } = singleService;
 
   const { register, handleSubmit } = useForm();
 
@@ -17,7 +17,7 @@ const BookingModal = ({ singleService, setSingleService }) => {
       clientName: user?.displayName,
       service: serviceName,
       resellprice,
-      location,
+      location:data.location,
       phone: data.phone,
       email: user?.email,
     };
@@ -67,8 +67,10 @@ const BookingModal = ({ singleService, setSingleService }) => {
               className="input border border-gray-300 w-full my-2"
             />
             <input
-              defaultValue={`Meet ${location}`}
-              readOnly
+              // defaultValue={`Meet ${location}`}
+              name="location"
+              {...register("location", { required: "required*" })}
+              placeholder="Meet Location"
               className="input border border-gray-300 w-full my-2"
             />
             <input

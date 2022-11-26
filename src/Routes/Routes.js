@@ -6,6 +6,7 @@ import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
 import Allusers from "../Pages/Dashboard/AllUsers/Allusers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
+import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/Login/SignUp";
@@ -55,6 +56,7 @@ const Routes = () => {
             </PrivateRoutes>
           ),
         },
+
         {},
         {},
         {},
@@ -103,6 +105,11 @@ const Routes = () => {
               <AllBuyers></AllBuyers>
             </PrivateRoutes>
           ),
+        },
+
+        {
+          path: "/dashboard/myproducts",
+          element: <MyProducts></MyProducts>,
         },
       ],
     },

@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import useBuyer from "../Component/CustomHook/useBuyer";
+import useSeller from "../Component/CustomHook/useSeller";
+import { authContext } from "../Context/AuthProvider";
 import Header from "../Shared/Header/Header";
 
 const DashboardRoot = () => {
+  const { user } = useContext(authContext);
+  const [isBuyer] = useBuyer(user?.email);
+  const [isSeller] = useSeller(user?.email);
   return (
     <div>
       <Header></Header>
@@ -14,15 +20,28 @@ const DashboardRoot = () => {
         <div className="drawer-side mt-6">
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu customClass p-4 w-80 text-base-content">
-            <NavLink to="/dashboard/profile" className="my-2">
-              Profile
-            </NavLink>
-            <NavLink to="/dashboard/myorders" className="my-2">
-              My Orders
-            </NavLink>
-            <NavLink to="/dashboard/addproducts" className="my-2">
-              Add a Product
-            </NavLink>
+            {isBuyer && (
+              <>
+                {" "}
+                <NavLink to="/dashboard/profile" className="my-2">
+                  Profile
+                </NavLink>
+                <NavLink to="/dashboard/myorders" className="my-2">
+                  My Orders
+                </NavLink>
+              </>
+            )}
+            {isSeller && (
+              <>
+                {" "}
+                <NavLink to="/dashboard/addproducts" className="my-2">
+                  Add a Product
+                </NavLink>
+                <NavLink to="/dashboard/myproducts" className="my-2">
+                  My Products
+                </NavLink>
+              </>
+            )}
             <NavLink to="/dashboard/allusers" className="my-2">
               ALl Sellers
             </NavLink>

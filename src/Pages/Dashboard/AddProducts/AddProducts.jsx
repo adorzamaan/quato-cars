@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 import { authContext } from "../../../Context/AuthProvider";
 import "./AddProduct.css";
 const AddProducts = () => {
@@ -15,7 +16,7 @@ const AddProducts = () => {
         setCategories(data);
       });
   }, []);
-
+  const navigate = useNavigate();
   const handleAddProducts = (data) => {
     console.log(data);
     const date = new Date().toLocaleDateString();
@@ -41,7 +42,7 @@ const AddProducts = () => {
             sellerProfile: user?.photoURL,
             sellername: user?.displayName,
             timing: date,
-            email: data.email,
+            email: user.email,
             model: data.model,
             Reg: data.Reg,
             Cc: data.Cc,
@@ -54,7 +55,7 @@ const AddProducts = () => {
             description: [data.description],
           };
           console.log(products);
-          fetch(`${process.env.REACT_APP_server_url}/categories`, {
+          fetch(`${process.env.REACT_APP_server_url}/products`, {
             method: "POST",
             headers: {
               "content-type": "application/json",
@@ -65,6 +66,7 @@ const AddProducts = () => {
             .then((data) => {
               console.log(data);
               toast.success("Successfully Addedd");
+              navigate("/dashboard/myproducts");
             });
         }
       });
@@ -176,7 +178,8 @@ const AddProducts = () => {
           </label> */}
           <input
             type="email"
-            placeholder="Email"
+            defaultValue={user?.email}
+            readOnly
             {...register("email", { required: "Email is required" })}
             className="w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white  text-gray-800 "
           />
