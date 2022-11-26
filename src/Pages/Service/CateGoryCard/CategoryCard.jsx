@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import { authContext } from "../../../Context/AuthProvider";
+import React from "react";
 
 const CategoryCard = ({ service, setSingleService }) => {
-  const { user } = useContext(authContext);
   const { description } = service;
   // console.log(description);
   return (
@@ -32,7 +30,7 @@ const CategoryCard = ({ service, setSingleService }) => {
             <p style={{ fontSize: "16px" }}>CC : {service?.Cc}</p>
             <p style={{ fontSize: "16px" }}>Registration : {service?.Reg}</p>
             <p style={{ fontSize: "16px" }}>
-              Condition : {service?.condition[2]}
+              Condition : {service?.condition}
             </p>
             <p style={{ fontSize: "16px" }}>Year of Use : {service?.yearuse}</p>
             <p style={{ fontSize: "16px" }}>
@@ -43,6 +41,7 @@ const CategoryCard = ({ service, setSingleService }) => {
             </p>
             <p style={{ fontSize: "16px" }}>Phone : 016017872348</p>
             <p style={{ fontSize: "16px" }}>Location : {service?.location}</p>
+           {service.timing &&  <p style={{ fontSize: "16px" }}>Timing : {service?.timing}</p>}
 
             <div className="divider">
               <p className="font-medium text-sm text-gray-800 border-gray-300">
@@ -74,11 +73,11 @@ const CategoryCard = ({ service, setSingleService }) => {
             </div>
             <div className="avatar flex justify-center">
               <div className="w-10 rounded-full ring ring-primary ring-offset-base-100 ring-offset-1">
-                <img src={user?.photoURL} alt="/" />
+                <img src={service?.sellerProfile} alt="/" />
               </div>
             </div>
             <h3 className="font-bold text-md text-center pt-2">
-              {user?.displayName}
+              {service?.sellername}
             </h3>
           </div>
           {/* <div className="tablet">

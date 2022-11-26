@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
+import { authContext } from "../../../Context/AuthProvider";
 import "./AddProduct.css";
 const AddProducts = () => {
   const { register, handleSubmit } = useForm();
+  const { user } = useContext(authContext);
 
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -16,6 +18,9 @@ const AddProducts = () => {
 
   const handleAddProducts = (data) => {
     console.log(data);
+    const date = new Date().toLocaleDateString();
+    console.log(date);
+
     const image = data.image[0];
     // console.log(name, image, user, email, password);
     const formData = new FormData();
@@ -32,7 +37,10 @@ const AddProducts = () => {
           const products = {
             category_id: data.category_id,
             name: data.name,
-            image:imageData.data.url,
+            image: imageData.data.url,
+            sellerProfile: user?.photoURL,
+            sellername: user?.displayName,
+            timing: date,
             email: data.email,
             model: data.model,
             Reg: data.Reg,
@@ -43,8 +51,9 @@ const AddProducts = () => {
             location: data.location,
             condition: data.condition,
             yearuse: data.yearuse,
-            // description: data.description,
+            description: [data.description],
           };
+          console.log(products);
           fetch(`${process.env.REACT_APP_server_url}/categories`, {
             method: "POST",
             headers: {
@@ -70,10 +79,21 @@ const AddProducts = () => {
           </label> */}
           <input
             type="text"
-            placeholder="name"
+            placeholder="Brand name"
             {...register("name", { required: "name is required" })}
             className="w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white  text-gray-800 "
           />
+          <select
+            {...register("category_id")}
+            required
+            className="select select-ghost w-full px-4 py-2 rounded-md bg-white border-gray-200 border  text-gray-800"
+          >
+            {categories.map((category) => (
+              <option key={category._id} value={category?.category_id}>
+                {category?.brand}
+              </option>
+            ))}
+          </select>
           {/* <label htmlFor="name" className="block text-gray-600">
             Photo
           </label> */}
@@ -88,12 +108,6 @@ const AddProducts = () => {
           {/* <label htmlFor="email" className="block text-gray-600">
             Email
           </label> */}
-          <input
-            type="email"
-            placeholder="Email"
-            {...register("email", { required: "Email is required" })}
-            className="w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white  text-gray-800 "
-          />
           {/* <label htmlFor="name" className="block text-gray-600">
             Photo
           </label> */}
@@ -151,26 +165,21 @@ const AddProducts = () => {
             {...register("yearuse", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
           />
-          {/* <input
+          <input
             type="text"
             placeholder="Description"
             {...register("description", { required: "photo is required" })}
             className=" w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white text-gray-800 "
-          /> */}
+          />
           {/* <label htmlFor="email" className="block text-gray-600">
             Specialty
           </label> */}
-          <select
-            {...register("category_id")}
-            required
-            className="select select-ghost w-full px-4 py-2 rounded-md bg-white border-gray-200 border  text-gray-800"
-          >
-            {categories.map((category) => (
-              <option key={category._id} value={category?.category_id}>
-                {category?.brand}
-              </option>
-            ))}
-          </select>
+          <input
+            type="email"
+            placeholder="Email"
+            {...register("email", { required: "Email is required" })}
+            className="w-full inputfeild px-4 py-2 rounded-md border-gray-200 border bg-white  text-gray-800 "
+          />
 
           <input
             type="submit"

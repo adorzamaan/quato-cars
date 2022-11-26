@@ -48,7 +48,7 @@ const Allusers = () => {
                 <p className="text-sm">{seller?.email}</p>
               </td>
               <td>
-              <small>
+                <small>
                   <Link to="/">
                     <button className="py-1 px-3 bg-red-500 text-white">
                       Verify
