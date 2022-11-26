@@ -75,6 +75,7 @@ const AddProducts = () => {
     <div>
       <h3 className="font-bold py-6">Add Products</h3>
       <div className="addpro w-full  p-8 space-y-3 rounded-xl shadow-md bg-white">
+        <span className="font-bold">Note : <small className="font-medium text-red-500">All Feild Required</small></span>
         <form onSubmit={handleSubmit(handleAddProducts)} className="space-y-2">
           {/* <label htmlFor="name" className="block text-gray-600">
             Name

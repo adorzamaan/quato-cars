@@ -13,6 +13,7 @@ import SignUp from "../Pages/Login/SignUp";
 import Service from "../Pages/Service/Service";
 import DashboardRoot from "../Root/DashboardRoot";
 import Root from "../Root/Root";
+import AdminRoutes from "./AdminRoutes";
 import PrivateRoutes from "./PrivateRoutes";
 
 const Routes = () => {
@@ -93,17 +94,17 @@ const Routes = () => {
         {
           path: "/dashboard/allusers",
           element: (
-            <PrivateRoutes>
+            <AdminRoutes>
               <Allusers></Allusers>
-            </PrivateRoutes>
+            </AdminRoutes>
           ),
         },
         {
           path: "/dashboard/allbuyers",
           element: (
-            <PrivateRoutes>
+            <AdminRoutes>
               <AllBuyers></AllBuyers>
-            </PrivateRoutes>
+            </AdminRoutes>
           ),
         },
 
