@@ -10,6 +10,7 @@ const MyProducts = () => {
   const {
     data: products = [],
     isLoading,
+    refetch,
   } = useQuery({
     queryKey: ["products", user?.email],
     queryFn: async () => {
@@ -22,14 +23,6 @@ const MyProducts = () => {
   if (isLoading) {
     return <LoadingSpinner></LoadingSpinner>;
   }
-
-//   const handleDelete = (product) => {
-//     fetch(`${process.env.REACT_APP_server_url}/products/${product._id}`, {
-//       method: "DELETE",
-//     })
-//       .then((res) => res.json())
-//       .then((data) => console.log(data));
-//   };
 
   return (
     <div>
@@ -55,7 +48,8 @@ const MyProducts = () => {
               key={product._id}
               index={index}
               product={product}
-            //   handleDeleteditem={handleDelete}
+              // handleDeleteditem={handleDelete}
+              refetch={refetch}
             ></MyproductTable>
           ))}
         </tbody>

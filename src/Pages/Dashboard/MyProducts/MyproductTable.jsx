@@ -1,7 +1,21 @@
 import React from "react";
+import toast from "react-hot-toast";
 
-const MyproductTable = ({ product, index, handleDeleteditem }) => {
+const MyproductTable = ({ product, index, refetch }) => {
   //   console.log(product);
+
+  const handleDelete = (id) => {
+    fetch(`${process.env.REACT_APP_server_url}/products/${id}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(`${product?.model} Booked Deleted `);
+        }
+      });
+  };
 
   return (
     <tr>
@@ -35,12 +49,12 @@ const MyproductTable = ({ product, index, handleDeleteditem }) => {
         </small>
       </td>
       <td>
-      <button
-            // onClick={() => handleDeleteditem(_id)}
-            className="py-1 px-3 bg-red-400 text-white"
-          >
-            Delete
-          </button>
+        <button
+          onClick={() => handleDelete(product._id)}
+          className="py-1 px-3 bg-red-400 text-white"
+        >
+          Delete
+        </button>
       </td>
     </tr>
   );
