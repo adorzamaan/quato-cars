@@ -73,7 +73,11 @@ const Routes = () => {
       children: [
         {
           path: "/dashboard",
-          element: <Dashboard></Dashboard>,
+          element: (
+            <PrivateRoutes>
+              <Dashboard></Dashboard>
+            </PrivateRoutes>
+          ),
         },
         {
           path: "/dashboard/myorders",
@@ -110,7 +114,11 @@ const Routes = () => {
 
         {
           path: "/dashboard/myproducts",
-          element: <MyProducts></MyProducts>,
+          element: (
+            <PrivateRoutes>
+              <MyProducts></MyProducts>
+            </PrivateRoutes>
+          ),
         },
       ],
     },

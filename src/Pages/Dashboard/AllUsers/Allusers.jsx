@@ -1,20 +1,56 @@
-import React, { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import React from "react";
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
 
 const Allusers = () => {
   //   const { user } = useContext(authContext);
 
   // const url =
-  const [sellers, setAllSellers] = useState([]);
+  // const [sellers, setAllSellers] = useState([]);
 
-  useEffect(() => {
-    fetch(`${process.env.REACT_APP_server_url}/users`)
+  // useEffect(() => {
+  //   fetch(`${process.env.REACT_APP_server_url}/users`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       console.log(data.data.user);
+  //       setAllSellers(data.data.users);
+  //     });
+  // }, []);
+
+  const {
+    data: sellers = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ["sellers"],
+    queryFn: async () => {
+      const res = await fetch(`${process.env.REACT_APP_server_url}/users`);
+      const data = await res.json();
+      const sellers = data.data.users;
+      return sellers;
+    },
+  });
+  if (isLoading) {
+    return <LoadingSpinner></LoadingSpinner>;
+  }
+
+  const handleDelete = (id) => {
+    fetch(`${process.env.REACT_APP_server_url}/users/admin/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data.user);
-        setAllSellers(data.data.users);
+        if (data.deletedCount > 0) {
+          refetch();
+          toast.success(`Sucessfully Deleted`);
+        }
       });
-  }, []);
+  };
 
   return (
     <div>
@@ -58,13 +94,12 @@ const Allusers = () => {
               </td>
 
               <td>
-                <small>
-                  <Link to="/">
-                    <button className="py-1 px-3 bg-accent text-white">
-                      Delete
-                    </button>
-                  </Link>
-                </small>
+                <button
+                  onClick={() => handleDelete(seller._id)}
+                  className="py-1 px-3 bg-accent text-white"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}

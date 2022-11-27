@@ -41,7 +41,6 @@ const Header = () => {
           >
             <NavLink to="/">Home</NavLink>
 
-            <NavLink to="/service">Service</NavLink>
 
             <NavLink to="/blog">Blog</NavLink>
 
@@ -67,7 +66,6 @@ const Header = () => {
         <div className="menu cusotmClass menu-horizontal p-0">
           <NavLink to="/">Home</NavLink>
 
-          <NavLink to="/service">Service</NavLink>
 
           <NavLink to="/blog">Blog</NavLink>
 
