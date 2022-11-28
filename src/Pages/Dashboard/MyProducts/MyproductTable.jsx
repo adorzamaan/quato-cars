@@ -18,6 +18,16 @@ const MyproductTable = ({ product, index, refetch }) => {
       });
   };
 
+  const handleAdvirtised = (id) => {
+    fetch(`${process.env.REACT_APP_server_url}/products/${id}`, {
+      method: "PUT",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        toast.success('Advirtised succesfully')
+      });
+  };
+
   return (
     <tr>
       <th>{index + 1}</th>
@@ -49,12 +59,23 @@ const MyproductTable = ({ product, index, refetch }) => {
           )} */}
         </small>
       </td>
-      <td className="flex justify-between items-center">
-        <TrashIcon
+      <td className="flex justify-around items-center">
+        <button
           onClick={() => handleDelete(product._id)}
-          className="w-6 h-6 text-red-400 rounded-full font-sm"
-        ></TrashIcon>
-      <small> <button style={{fontSize:'12px'}} className="py-1 px-2 bg-red-400 text-white">Advirtised</button></small>
+          className="shadow-sm p-2 bg-red-400 hover:bg-red-600 text-white rounded-full"
+        >
+          <TrashIcon className="w-5 h-5 text-sm shadow-sm"></TrashIcon>
+        </button>
+        <small>
+          {" "}
+          <button
+            onClick={() => handleAdvirtised(product._id)}
+            style={{ fontSize: "12px" }}
+            className="py-1 px-2 hover:bg-green-400 bg-red-400 text-white"
+          >
+            Advirtised
+          </button>
+        </small>
       </td>
     </tr>
   );

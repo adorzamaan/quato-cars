@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
       <div className="grid grid-flow-col gap-4">
+        <Link>Products</Link>
         <Link>About us</Link>
-        <Link>Contact</Link>
-        <Link>Jobs</Link>
-        <Link>Press kit</Link>
+        <Link to='/'>Contact</Link>
+        <Link to='/blog'>Blog</Link>
       </div>
       <div>
         <div className="grid grid-flow-col gap-4">
@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
       </div>
       <div>
-        <p>Copyright © 2022 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2022 - All right reserved by <Link to='/'>Quato Cars Ltd</Link></p>
       </div>
     </footer>
   );
