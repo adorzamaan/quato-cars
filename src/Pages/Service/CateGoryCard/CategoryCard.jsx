@@ -3,6 +3,11 @@ import React from "react";
 const CategoryCard = ({ service, setSingleService }) => {
   const { description } = service;
   // console.log(description);
+
+  
+
+
+
   return (
     <div className="bg-base-100">
       <div className="card  rounded-sm border text-left">
@@ -41,7 +46,8 @@ const CategoryCard = ({ service, setSingleService }) => {
             </p>
             <p style={{ fontSize: "16px" }}>Phone : 016017872348</p>
             <p style={{ fontSize: "16px" }}>Location : {service?.location}</p>
-           {service.timing &&  <p style={{ fontSize: "16px" }}>Timing : {service?.timing}</p>}
+           {service.timing &&  <p style={{ fontSize: "16px" }}>Date : {service?.timing}</p>}
+           {service.posttime &&  <p style={{ fontSize: "16px" }}>Timing : {service?.posttime}</p>}
 
             <div className="divider">
               <p className="font-medium text-sm text-gray-800 border-gray-300">
@@ -79,24 +85,12 @@ const CategoryCard = ({ service, setSingleService }) => {
             <h3 className="font-bold text-md text-center pt-2">
               {service?.sellername}
             </h3>
+            {/* {
+              sellers?.map(seller => <CheckBadgeIcon key={seller._id}></CheckBadgeIcon>)
+            } */}
           </div>
-          {/* <div className="tablet">
-            <p>
-              Price : <small></small>
-            </p>
-            <p className="flex items-center pr-2">
-              Lectures: <small></small>
-            </p>
-          </div> */}
         </div>
-        {/* <div className="tablet text-center mt-2 mb-6">
-          <label
-            htmlFor="bookingModal"
-            className="bg-gradient-to-tr from-primary to-secondary rounded-lg py-1 px-6 text-white"
-          >
-            Book Now
-          </label>
-        </div> */}
+     
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { TrashIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import toast from "react-hot-toast";
 
@@ -48,13 +49,12 @@ const MyproductTable = ({ product, index, refetch }) => {
           )} */}
         </small>
       </td>
-      <td>
-        <button
+      <td className="flex justify-between items-center">
+        <TrashIcon
           onClick={() => handleDelete(product._id)}
-          className="py-1 px-3 bg-red-400 text-white"
-        >
-          Delete
-        </button>
+          className="w-6 h-6 text-red-400 rounded-full font-sm"
+        ></TrashIcon>
+      <small> <button style={{fontSize:'12px'}} className="py-1 px-2 bg-red-400 text-white">Advirtised</button></small>
       </td>
     </tr>
   );

@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { authContext } from "../../../Context/AuthProvider";
 import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
 import MyproductTable from "./MyproductTable";
@@ -25,11 +26,16 @@ const MyProducts = () => {
   }
 
   return (
-    <div>
+   <div>
+    {
+      products.length === 0 ? <div className="">
+        <h3 className="font-bold text-red-500 py-6">Product not added here now</h3>
+        <p>Please Add your product <Link to="/dashboard/addproducts" className="px-6 py-1 bg-red-400 text-white ml-2">Add</Link> </p>
+      </div>:<div>
       <h3 className="font-bold py-6">
         Hey{" "}
         <small className="text-primary font-bold">{`${user?.displayName}`}</small>{" "}
-        your Product Already unsold -- {products?.length}
+        Your Available Products -- {products?.length}
       </h3>
       <table className="table w-full bg-base-100">
         <thead>
@@ -55,6 +61,8 @@ const MyProducts = () => {
         </tbody>
       </table>
     </div>
+    }
+   </div>
   );
 };
 

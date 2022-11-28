@@ -62,7 +62,7 @@ const Allusers = () => {
       .then((data) => {
         // console.log(data);
         if (data.modifiedCount > 0) {
-          refetch()
+          refetch();
           toast.success("Sucessfully Verified");
         }
       });
@@ -100,21 +100,21 @@ const Allusers = () => {
                 <p className="text-sm">{seller?.email}</p>
               </td>
               <td>
-               {
-                !seller?.userverfied && <><small>
-                <button
-                  onClick={() => handleMakeVerify(seller._id)}
-                  className="py-1 px-3 bg-red-500 text-white"
-                >
-                  Make Verify
-                </button>
-              </small></>
-               }
+                {!seller?.userverfied && (
+                  <>
+                    <small>
+                      <button
+                        onClick={() => handleMakeVerify(seller._id)}
+                        className="text-sm py-1 px-3 bg-red-500 text-white"
+                      >
+                        Make Verify
+                      </button>
+                    </small>
+                  </>
+                )}
                 {seller?.userverfied && (
-                  <small>
-                    <button className="py-1 px-3 bg-green-500 text-white">
-                      Verified
-                    </button>
+                  <small className="border px-3 py-1 font-bold text-green-500 text-center">
+                    Verified
                   </small>
                 )}
               </td>

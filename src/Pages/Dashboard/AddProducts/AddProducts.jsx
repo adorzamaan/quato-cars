@@ -20,6 +20,7 @@ const AddProducts = () => {
   const handleAddProducts = (data) => {
     console.log(data);
     const date = new Date().toLocaleDateString();
+    const time = new Date().toLocaleTimeString()
     console.log(date);
 
     const image = data.image[0];
@@ -42,6 +43,7 @@ const AddProducts = () => {
             sellerProfile: user?.photoURL,
             sellername: user?.displayName,
             timing: date,
+            posttime:time,
             email: user.email,
             model: data.model,
             Reg: data.Reg,
