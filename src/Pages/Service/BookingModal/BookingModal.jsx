@@ -31,7 +31,6 @@ const BookingModal = ({ singleService, setSingleService }) => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success(
           `Hey ${user?.displayName} Thanks for the ${serviceName} Booked`
         );

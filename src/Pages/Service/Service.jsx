@@ -8,7 +8,6 @@ const Service = () => {
   const [singleService, setSingleService] = useState(null);
   const services = useLoaderData();
   const servicesData = services.data.result;
-  console.log(servicesData);
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return <LoadingSpinner></LoadingSpinner>;

@@ -4,10 +4,6 @@ const CategoryCard = ({ service, setSingleService }) => {
   const { description } = service;
   // console.log(description);
 
-  
-
-
-
   return (
     <div className="bg-base-100">
       <div className="card  rounded-sm border text-left">

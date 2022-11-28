@@ -4,16 +4,7 @@ import toast from "react-hot-toast";
 import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
 
 const AllBuyers = () => {
-  // const [buyers, setAllBuyers] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_server_url}/users`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       // console.log(data.data.user);
-  //       setAllBuyers(data.data.buyers);
-  //     });
-  // }, []);
+ 
 
   const {
     data: buyers,

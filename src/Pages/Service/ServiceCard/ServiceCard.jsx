@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import PrimaryButton from "../../../Shared/PrimaryButton/PrimaryButton";
 
 const ServiceCard = ({category}) => {
-  console.log(category);
   const {info} = category;
 
   return (

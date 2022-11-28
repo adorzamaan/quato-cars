@@ -1,10 +1,10 @@
-# Full stack car buy-sell Market Management
+# Full stack Car buy-sell Market
 
 The mission of Quato Cars will be to buy and sell a desirable mix of quality used cars to create a friendly atmosphere where Quato Cars will be known for being your family used car center.
 
 ## Live Link
 
-Hosted in Firebase Live Link -> [Quato Cars]()
+Hosted in Firebase Live Link -> [Quato Cars](https://quato-cars.web.app/)
 
 - Feature :
   - Features of user registration and login
@@ -38,5 +38,6 @@ Tilwind Components ->
 
 Icon -> [HeroIcon](https://heroicons.com/)
 
-Admin EMAIL = (rubayet@rubahasan.com)
-Admin Pass = (123456)
+- Admin Dashboard
+  - Admin EMAIL = (rubayet@rubahasan.com)
+  - Admin Pass = (123456)

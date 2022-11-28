@@ -18,10 +18,8 @@ const AddProducts = () => {
   }, []);
   const navigate = useNavigate();
   const handleAddProducts = (data) => {
-    console.log(data);
     const date = new Date().toLocaleDateString();
     const time = new Date().toLocaleTimeString()
-    console.log(date);
 
     const image = data.image[0];
     // console.log(name, image, user, email, password);
@@ -34,7 +32,6 @@ const AddProducts = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData);
         if (imageData.success) {
           const products = {
             category_id: data.category_id,
@@ -56,7 +53,6 @@ const AddProducts = () => {
             yearuse: data.yearuse,
             description: [data.description],
           };
-          console.log(products);
           fetch(`${process.env.REACT_APP_server_url}/products`, {
             method: "POST",
             headers: {
@@ -66,7 +62,6 @@ const AddProducts = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log(data);
               toast.success("Successfully Addedd");
               navigate("/dashboard/myproducts");
             });

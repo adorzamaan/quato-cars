@@ -7,7 +7,6 @@ const useToken = (email) => {
       fetch(`${process.env.REACT_APP_server_url}/jwt?email=${email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           if (data.accessToken) {
             localStorage.setItem("accessToken", data.accessToken);
             setToken(data.accessToken);

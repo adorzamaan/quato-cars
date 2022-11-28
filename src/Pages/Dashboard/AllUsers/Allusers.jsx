@@ -4,20 +4,7 @@ import toast from "react-hot-toast";
 import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
 
 const Allusers = () => {
-  //   const { user } = useContext(authContext);
-
-  // const url =
-  // const [sellers, setAllSellers] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(`${process.env.REACT_APP_server_url}/users`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log(data.data.user);
-  //       setAllSellers(data.data.users);
-  //     });
-  // }, []);
-
+ 
   const {
     data: sellers = [],
     isLoading,
