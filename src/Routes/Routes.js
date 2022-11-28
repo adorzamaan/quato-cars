@@ -7,6 +7,7 @@ import Allusers from "../Pages/Dashboard/AllUsers/Allusers";
 import Dashboard from "../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../Pages/Dashboard/MyProducts/MyProducts";
+import Profile from "../Pages/Dashboard/Profile/Profile";
 import ReportedItems from "../Pages/Dashboard/ReportedItems/ReportedItems";
 import Home from "../Pages/Home/Home";
 import Login from "../Pages/Login/Login";
@@ -126,6 +127,14 @@ const Routes = () => {
           element: (
             <PrivateRoutes>
               <MyProducts></MyProducts>
+            </PrivateRoutes>
+          ),
+        },
+        {
+          path: "/dashboard/profile",
+          element: (
+            <PrivateRoutes>
+              <Profile></Profile>
             </PrivateRoutes>
           ),
         },
