@@ -1,5 +1,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ErroPage from "../Component/CustomHook/ErroPage/ErroPage";
 import Blog from "../Pages/Blog/Blog";
 import AddProducts from "../Pages/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../Pages/Dashboard/AllBuyers/AllBuyers";
@@ -23,6 +24,7 @@ const Routes = () => {
     {
       path: "/",
       element: <Root></Root>,
+      errorElement: <ErroPage></ErroPage>,
       children: [
         {
           path: "/",
@@ -51,7 +53,9 @@ const Routes = () => {
         {
           path: "/categories/:id",
           loader: ({ params }) => {
-            return fetch(`http://localhost:5000/categories/${params.id}`);
+            return fetch(
+              `${process.env.REACT_APP_server_url}/categories/${params.id}`
+            );
           },
           element: (
             <PrivateRoutes>
@@ -72,6 +76,7 @@ const Routes = () => {
     {
       path: "/dashboard",
       element: <DashboardRoot></DashboardRoot>,
+      errorElement: <ErroPage></ErroPage>,
       children: [
         {
           path: "/dashboard",

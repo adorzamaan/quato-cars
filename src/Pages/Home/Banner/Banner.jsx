@@ -3,7 +3,7 @@ import banner from "../../../images/banner.jpg";
 import PrimaryButton from "../../../Shared/PrimaryButton/PrimaryButton";
 const Banner = () => {
   return (
-    <div className="container mx-auto banner md:flex md:justify-around items-center md:py-28 py-20 px-6">
+    <div className="container mx-auto banner md:flex md:justify-around items-center md:py-28 py-14 px-6">
       <div className="text-content">
         <h3 className="text-accent font-bold lg:text-3xl md:text-2xl text-1xl">
           Easy And Fast way to Buy & Sell <br></br> Car on our Platform
