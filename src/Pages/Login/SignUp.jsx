@@ -40,7 +40,6 @@ const SignUp = () => {
     })
       .then((res) => res.json())
       .then((imageData) => {
-        console.log(imageData);
         createUser(email, password)
           .then((result) => {
             const user = result.user;

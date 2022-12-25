@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
+import React, { useContext } from "react";
 import toast from "react-hot-toast";
+import { authContext } from "../../../Context/AuthProvider";
 import LoadingSpinner from "../../../Shared/Spinner/LoadingSpinner/LoadingSpinner";
 
 const Allusers = () => {
- 
+ const {user } = useContext(authContext)
   const {
     data: sellers = [],
     isLoading,
@@ -47,7 +48,6 @@ const Allusers = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         if (data.modifiedCount > 0) {
           refetch();
           toast.success("Sucessfully Verified");

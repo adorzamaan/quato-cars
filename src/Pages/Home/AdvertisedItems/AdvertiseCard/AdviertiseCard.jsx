@@ -20,22 +20,6 @@ const AdviertiseCard = ({ advirtise }) => {
             <p style={{ fontSize: "14px" }}>
              Info: <small>{description.slice(0,100)}</small>
             </p>
-
-            {/* <p>
-              Price :450000 <small>{advirtise?.price}</small>
-            </p>
-            <p className="font-medium pr-2">
-              Condition: Fair<small></small>
-            </p>
-            <p className="font-medium py-2">
-              Description: Mazda Motor Corporation commonly referred to as
-              simply Mazda, is a Japanese multinational automotive
-              <small></small>
-            </p>
-            <p className="font-medium py-2">
-              Feature: All option auto, sunroof, premium beige leather interior{" "}
-              <small></small>
-            </p> */}
           </div>
         </div>
         <div className="tablet text-center mt-2 mb-6">

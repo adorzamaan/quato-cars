@@ -14,8 +14,8 @@ const Categories = () => {
   return (
     <div className="container mx-auto mt-10 mb-20">
       <div className="pb-12 pt-4 text-center">
-        <h3 className="font-bold pb-1 text-md">Let's Find your Dream Car</h3>
-        <p>
+        <h3 className="font-bold pb-1 text-center lg:text-xl sm:text-sm text-sm">Let's Find your Dream Car</h3>
+        <p className="">
           We recommended the very best and new cars toady and also friendly
           Price for you
         </p>

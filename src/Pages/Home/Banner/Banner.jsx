@@ -12,7 +12,11 @@ const Banner = () => {
           We will help you sell or buy your dream car here easily and quickly
           that is reliable.
         </p>
-        <PrimaryButton>Get Started</PrimaryButton>
+      <div className="flex flex-wrap">
+      <PrimaryButton>Buy Car</PrimaryButton>
+      <p className="mx-2"></p>
+        <PrimaryButton>Sell Car</PrimaryButton>
+      </div>
       </div>
       <img
         src={banner}

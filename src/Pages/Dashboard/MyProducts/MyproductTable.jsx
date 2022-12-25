@@ -21,6 +21,9 @@ const MyproductTable = ({ product, index, refetch }) => {
   const handleAdvirtised = (id) => {
     fetch(`${process.env.REACT_APP_server_url}/products/${id}`, {
       method: "PUT",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+      },
     })
       .then((res) => res.json())
       .then((data) => {
